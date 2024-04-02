@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>kjgsa</h1>
+    <h1 id="title">Hello World</h1>
+    <button onmouseover="change()">change</button>
+<script>
+    function change(){
+    var para=document.getElementById('title');
+    console.log(para.textContent)
+    para.textContent="Bye World";
+}
+    </script>
 </body>
 </html>
