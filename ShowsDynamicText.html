@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="text"> 
+    <p id="currentText"></p>
+    <script>
+        const t=document.getElementById("text")
+        t.addEventListener('input',()=>{
+            document.getElementById('currentText').textContent=t.value; 
+        })
+
+    //     function change(){
+    //     //var t=
+    //     document.getElementById('currentText').textContent=document.getElementById('text').value;
+    //     // console.log(t)
+    //     //t.textContent=document.getElementById('text').value;
+    //     // console.log(document.getElementById('text').value)
+    // }//onkeyup="change()"
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="name">Name</h1>
+    <button id="John" onclick="John()">John</button>
+    <button id="Kumar" onclick="Kumar()">Kumar</button>
+    <button id="Raja" onclick="Raja()">Raja</button>
+    <script>
+        function John() {
+            var text1 = document.getElementById("John").textContent;
+            var name = document.getElementById("name");
+            name.textContent = text1;
+        }
+
+        function Kumar() {
+            var text2 = document.getElementById("Kumar").textContent;
+            var name = document.getElementById("name");
+            name.textContent = text2;
+        }
+
+        function Raja() {
+            var text3 = document.getElementById("Raja").textContent;
+            var name = document.getElementById("name");
+            name.textContent = text3;
+        }
+    </script>
+</body>
+</html>

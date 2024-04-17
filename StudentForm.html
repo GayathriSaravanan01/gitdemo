@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          height: 20px;
+        }
+        #container-wrapper ,#container-wrapper2{
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+        }
+        #container {
+          border: 1px solid black;
+          width: 250px;
+          height: 172px;
+        }
+        form {
+          padding: 3px;
+        }
+        #saveForm {
+          width: 243px;
+          height: 30px;
+          background-color: rgb(185, 252, 252);
+        }
+        #course {
+          width: 177px;
+        }
+        #delete{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Student Form</h1>
+    <div id="container-wrapper">
+        <div id="container">
+            <form>
+                <table border="1">
+                    <tr>
+                        <td><label for="name"><b>Name</b></label></td>
+                        <td><input id="name" type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="age"><b>Age</b></label></td>
+                        <td><input id="age" type="number"  required></td>
+                    </tr>
+                    <tr>
+                        <td><b>Gender</b></td>
+                        <td>
+                            <input id="male" type="radio" name="gender" value="Male" required>
+                            <label for="male">Male</label>
+                            <input id="female" type="radio" name="gender" value="Female" required>
+                            <label for="female">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="course"><b>Course</b></label></td>
+                        <td>
+                            <select id="course"  required>
+                                <option value="Java">Java</option>
+                                <option value="Python">Python</option>
+                                <option value="C++">C++</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Aws">Aws</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email"><b>Email</b></label></td>
+                        <td><input id="email" type="email"  required></td>
+                    </tr>
+                </table>
+                <button type="button" id="saveForm">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="container-wrapper2">
+        <table border="1" id="table">
+            <tr>
+                <th>NAME</th>
+                <th>Age</th>
+                <th>COURSE</th>
+                <th>GENDER</th>
+                <th>EMAIL</th>
+                <th>ACTION</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById("saveForm").addEventListener('click',()=>{
+            
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var course = document.getElementById('course').value;
+            var email = document.getElementById('email').value;
+            var table = document.getElementById('table');
+            var tablerow = document.createElement('tr');
+            var tableDataName = document.createElement('td');
+            var tableDataAge = document.createElement('td');
+            var tableDataCourse = document.createElement('td');
+            var tableDataGender = document.createElement('td');
+            var tableDataEmail = document.createElement('td');
+             var button=document.createElement('td');
+            tableDataName.textContent = name;
+            tableDataAge.textContent = age;
+            tableDataCourse.textContent = course;
+            tableDataGender.textContent = gender;
+            tableDataEmail.textContent = email;
+
+            tablerow.appendChild(tableDataName);
+            tablerow.appendChild(tableDataAge);
+            tablerow.appendChild(tableDataCourse);
+            tablerow.appendChild(tableDataGender);
+            tablerow.appendChild(tableDataEmail);
+            
+            var btn=document.createElement('button');
+            btn.setAttribute('id','delete')
+            btn.setAttribute('onclick','deleteItem(event)')
+            btn.innerHTML="Delete";
+            button.appendChild(btn);
+            tablerow.appendChild(button)
+            
+            console.log(tablerow)
+            table.append(tablerow);
+
+        })
+        function deleteItem(event){
+            var e= event.target.parentNode.parentNode;
+            console.log(e)
+            e.remove();
+        }
+    </script>
+</body>
+</html>

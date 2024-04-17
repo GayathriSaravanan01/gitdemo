@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="content">
+    <button onclick="add()">Add</button>
+    <ul id="list">
+        <li >Hello
+            <button onclick="deleteListItem(event)">Delete</button>
+        </li>
+
+    </ul>
+    <script>
+        var u=document.getElementById('list')
+        console.log(u);
+        function add(){
+            var l=document.createElement('li');
+            
+            l.textContent=document.getElementById('content').value;
+            u.append(l);
+            var btn=document.createElement('button');
+            btn.setAttribute("onclick","deleteListItem(event)");
+            btn.textContent="Delete";
+            l.append(btn)
+        }
+        function deleteListItem(event){
+            console.log(event.target.parentNode)
+            var listItem = event.target.parentNode;
+            listItem.remove();
+
+            
+        }
+    </script>
+</body>
+</html>
